@@ -1,0 +1,107 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  
+  <!-- TODO: Make this work with solution explorer -->
+  <!-- This may work when the msbuild files are located inside the solution directory, need to investigate -->
+  <!-- Files required to run Umbraco, build will error if missing -->
+  
+  <ItemGroup>	
+    <Content Include="App_Data\packages\installed\installedPackages.config" />
+		<!-- default install doesn't have these files, need to add test, if exists, include 
+		<Content Include="App_Data\packages\installed\createdPackages.config" /> 
+    <Content Include="App_Data\access.config" />
+		-->
+  </ItemGroup>
+  <ItemGroup>
+		<Content Include="default.aspx" />
+		<Content Include="Global.asax" />
+    <Folder Include="App_Data\ExamineIndexes\" />
+    <Folder Include="App_Data\Logs\" />
+    <Folder Include="App_Data\preview\" />
+    <Folder Include="App_Plugins\" />
+  </ItemGroup>
+  
+  <!-- Automatically include content that can be generated via Umbraco or WITHOUT Visual Studio -->
+  <ItemGroup >
+		<!--
+		<Content Include="Css\**\*.*" />
+		<Content Include="Scripts\**\*.*" />
+		<Content Include="UserControls\**\*.*" />
+		<Content Include="Media\**\*.*" />
+		<Content Include="Masterpages\**\*.*" />
+		<Content Include="macroScripts\**\*.*" />
+		-->
+	</ItemGroup>
+
+	<!-- Umbraco Target -->
+	<Target Name="Umbraco">
+		<!-- 
+      SUMMARY :: Include 'editable' files in the build, even if they aren't inside Visual Studio
+      WHAT :: Get these files even when not in Visual Studio project.
+      WHY  :: Support creating assets via Umbraco or in another IDE, e.g. non visual studio users.  
+    -->
+
+		<!-- Lets not clutter our source control with .empty files -->
+		<!-- Lets just make the things we need if they don't exist -->
+		<!--
+		<MakeDir Directories="Css"/>
+		<MakeDir Directories="Scripts"/>
+		<MakeDir Directories="UserControls"/>
+		<MakeDir Directories="Media"/>
+		<MakeDir Directories="Masterpages"/>
+		<MakeDir Directories="macroScripts"/>
+		-->
+		
+    <CreateItem Include="macroScripts\**\*.cshtml">
+      <Output ItemName="Content" TaskParameter="Include" />
+    </CreateItem>
+    <CreateItem Include="xslt\**\*.*">
+      <Output ItemName="Content" TaskParameter="Include" />
+    </CreateItem>
+    <CreateItem Include="masterpages\**\*.master">
+      <Output ItemName="Content" TaskParameter="Include" />
+    </CreateItem>
+    <CreateItem Include="media\**\*.*">
+      <Output ItemName="Content" TaskParameter="Include" />
+    </CreateItem>
+    <CreateItem Include="usercontrols\**\*.ascx">
+      <Output ItemName="Content" TaskParameter="Include" />
+    </CreateItem>
+    <CreateItem Include="css\**\*.*">
+      <Output ItemName="Content" TaskParameter="Include" />
+    </CreateItem>
+    <CreateItem Include="scripts\**\*.*">
+      <Output ItemName="Content" TaskParameter="Include" />
+    </CreateItem>
+    <!-- 
+      SUMMARY :: Umbraco Application (v4.11.4)
+    -->
+    <CreateItem Include="App_Browsers\**\*.*">
+      <Output ItemName="Content" TaskParameter="Include" />
+    </CreateItem>
+    <CreateItem Include="App_Code\**\*.*">
+      <Output ItemName="Content" TaskParameter="Include" />
+    </CreateItem>
+    <CreateItem Include="App_Plugins\**\*.*">
+      <Output ItemName="Content" TaskParameter="Include" />
+    </CreateItem>
+    <CreateItem Include="Bin\**\*.*">
+      <Output ItemName="Content" TaskParameter="Include" />
+    </CreateItem>
+    <CreateItem Include="Config\**\*.*">
+      <Output ItemName="Content" TaskParameter="Include" />
+    </CreateItem>
+    <CreateItem Include="Umbraco\**\*.*">
+      <Output ItemName="Content" TaskParameter="Include" />
+    </CreateItem>
+    <CreateItem Include="Umbraco_Client\**\*.*">
+      <Output ItemName="Content" TaskParameter="Include" />
+    </CreateItem>
+	
+	  <!-- Copy output DLLs into BIN -->
+	  <ItemGroup>
+		  <ProjectsOutput Include="..\output\**\*.*" />
+	  </ItemGroup>
+	  <Copy SourceFiles="@(ProjectsOutput)"	DestinationFolder="bin\%(RecursiveDir)" />
+	
+  </Target>
+</Project>

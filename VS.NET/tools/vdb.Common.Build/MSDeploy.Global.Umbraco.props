@@ -1,0 +1,60 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!-- 
+    http://blog.alanta.nl/2011/02/web-deploy-customizing-deployment.html?showComment=1314013105475#c1406362862563428999
+  -->
+
+  <!-- TABLE OF CONTENTS
+    ## Set ACL's (WebDeploy ONLY)
+    ## 'Don't Delete' Rules
+  -->
+
+  <!-- ## Set ACL's -->
+  <PropertyGroup>
+    <AfterAddIisSettingAndFileContentsToSourceManifest>
+      DoSetAcl;
+    </AfterAddIisSettingAndFileContentsToSourceManifest>
+    <AfterAddIisAndContentDeclareParametersItems>
+      DoSetParam;
+    </AfterAddIisAndContentDeclareParametersItems>
+    <AfterAddDeclareParametersItems/>
+  </PropertyGroup>
+
+  <!-- WebDeploy will handle the standard .NET folders - e.g. App_Code, App_Browsers, App_Data, etc -->
+  <!-- For our production enviroment we want to allow editors to upload new images, so let's allow the /media folder -->
+  <ItemGroup>
+    <CustomDirAcl Include="Media">
+      <AclAccess>Modify</AclAccess>
+    </CustomDirAcl>
+    <!--
+    <CustomDirAcl Include="uSync">
+      <AclAccess>Modify</AclAccess>
+    </CustomDirAcl>
+    -->
+  </ItemGroup>
+
+  <!-- NOTE:: In debug mode, we everything has write permissions (see VooDoo.MSDeploy.Debug.tasks) -->
+
+  <!-- ## 'Don't Delete' -->
+  <!-- Update /App_Data directory, but don't delete existing files (e.g. server unique cache files) -->
+  <Target Name="AddSkipRules">
+    <ItemGroup>
+      <MsDeploySkipRules Include="SkipAppData">
+        <SkipAction>Delete</SkipAction>
+        <ObjectName>filePath</ObjectName>
+        <AbsolutePath>\\App_Data\\.*</AbsolutePath>
+      </MsDeploySkipRules>
+      <MsDeploySkipRules Include="SkipAppData">
+        <SkipAction>Delete</SkipAction>
+        <ObjectName>dirPath</ObjectName>
+        <AbsolutePath>\\App_Data\\.*</AbsolutePath>
+      </MsDeploySkipRules>
+
+      <MsDeploySkipRules Include="SkipMedia">
+        <SkipAction>Delete</SkipAction>
+        <ObjectName>filePath</ObjectName>
+        <AbsolutePath>.*\\Media$</AbsolutePath>
+      </MsDeploySkipRules>
+    </ItemGroup>
+  </Target>
+
+</Project>
