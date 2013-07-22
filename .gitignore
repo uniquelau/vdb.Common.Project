@@ -31,8 +31,8 @@ Desktop.ini
 # [Bb]in/
 [Oo]bj/
 [Ou]tput/
+*/*/[Ou]tput/
 
-/VS.NET/output
  
 *.aps
 *.bak
@@ -70,13 +70,18 @@ Desktop.ini
 #
 
 # Data folders/files
-*/ExamineIndexes/*
-*/App_Data/umbraco.config
-*/App_Browsers/*
-*/App_Data/TEMP/*
-*/App_Data/Logs/*
-*/App_Data/ClientDependency
-*/_systemUmbracoIndexDontDelete/*
+
+*/*/App_Data/ExamineIndexes/*
+*/*/App_Data/umbraco.config
+*/*/App_Browsers/*
+*/*/App_Data/TEMP/*
+*/*/App_Data/Logs/*
+*/*/App_Data/ClientDependency
+*/*/App_Data/courier/cache/*
+*/*/App_Data/courier/revisions/
+*/*/App_Data/justDelete_*
+*/*/App_Data/Preview/*
+*/*/_systemUmbracoIndexDontDelete/*
 
 media/*/Cached
 */imagecache/*
