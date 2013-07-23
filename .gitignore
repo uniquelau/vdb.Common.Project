@@ -69,7 +69,7 @@ Desktop.ini
 #Umbraco Specifics
 #
 
-# Data folders/files
+# Data folders/files (assumes structure of /source/project/, etc)
 
 */*/App_Data/ExamineIndexes/*
 */*/App_Data/umbraco.config
