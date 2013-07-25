@@ -72,6 +72,9 @@
     <CreateItem Include="scripts\**\*.*">
       <Output ItemName="Content" TaskParameter="Include" />
     </CreateItem>
+    <CreateItem Include="views\**\*.*">
+      <Output ItemName="Content" TaskParameter="Include" />
+    </CreateItem>
     <!-- 
       SUMMARY :: Umbraco Application (v4.11.4)
     -->
