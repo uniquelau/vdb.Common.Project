@@ -29,8 +29,12 @@ Desktop.ini
 [Dd]ebug/
 [Bb]uild/
 [Rr]elease/
-# [Bb]in/
 [Oo]bj/
+
+# When working with multiple visual studio projects
+# It's more reliable to build into one directory e.g. /output
+
+# [Bb]in/
 [Ou]tput/
 */*/[Ou]tput/
 
