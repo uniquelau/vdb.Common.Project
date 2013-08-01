@@ -35,8 +35,7 @@ Desktop.ini
 # It's more reliable to build into one directory e.g. /output
 
 # [Bb]in/
-[Ou]tput/
-*/*/[Ou]tput/
+[Oo]utput/
 
  
 *.aps
