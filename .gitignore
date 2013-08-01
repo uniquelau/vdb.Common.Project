@@ -68,33 +68,3 @@ Desktop.ini
 *_i.c
 *_p.c
 .builds
-
-
-#
-#Umbraco Specifics
-#
-
-# Data folders/files
-
-*/*/App_Data/ExamineIndexes/*
-*/*/App_Data/umbraco.config
-*/*/App_Browsers/*
-*/*/App_Data/TEMP/*
-*/*/App_Data/ClientDependency/*
-*/*/App_Data/courier/cache/*
-*/*/App_Data/courier/revisions/*
-*/*/App_Data/justDelete_*
-*/*/App_Data/Preview/*
-*/*/_systemUmbracoIndexDontDelete/*
-
-# Log files
-
-*/*/App_Data/Logs/*
-*/*/App_Data/courier/logs/*
-*/*/App_Data/Elmah Logs/*
-*/*/App_Data/umbraco.licensing.log.txt
-
-# Media Caching
-
-media/*/Cached
-*/imagecache/*
