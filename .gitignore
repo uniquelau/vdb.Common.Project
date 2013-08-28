@@ -10,6 +10,7 @@ Thumbs.db
 thumbs.db
 Desktop.ini
 *.orig
+*.dwsync.xml
 .sass-cache/
  
  
