@@ -22,6 +22,12 @@ dwsync.xml
 .hg
 .hgignore
  
+#
+# NuGet Packages Directory
+#
+
+packages
+
  
 #
 # Visual Studio
