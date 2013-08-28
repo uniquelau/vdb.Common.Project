@@ -17,11 +17,12 @@ In addition there is also a .gitignore file that is tailored for the Umbraco Web
 ### NuGet
 
 NuGet can be used to easily install packages into Visual Studio projects.
-By default, the 'packages' folder is not included in source control.
 
-This is because these files are copied into the solution and by including these in source control, you will essentially have a duplicate bunch of binaries consuming additional space and ruining your zen flow.
+In this project configuration these files are not included in Source Control, as they NuGet is able to automatically download these files on project build.
 
-You will however need to **enable 'package restore'** inside Visual Studio.
+This avoids clogging the repository up with files that should not be under source control.
+
+You will however need to **enable 'package restore'** inside Visual Studio. This adds a series of tasks into your solution that will automatically find and install the required packages.
 
 + Right click on the solution in the Solution Explorer and select 'Enable Package Restore'
 
