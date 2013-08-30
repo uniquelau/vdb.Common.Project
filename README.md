@@ -4,6 +4,15 @@ vdb.Common.Project
 Empty Project for Umbraco Website
 
 ## Git
+### [.gitattributes](.gitattributes)
+
+This file makes sure that git treats your files right. Different operating systems and softwares deal with line endings in different ways. It's important these are consistant across your files as otherwise Git may pick these differences up as 'modifications' on the orginal file.
+
+This file is based on the default file that is created when making a Team Foundation Service git repo.
+
+[Mind that line](http://timclem.wordpress.com/2012/03/01/mind-the-end-of-your-line/)
+[Dealing with line-endings](https://help.github.com/articles/dealing-with-line-endings)
+
 ### [.gitignore](.gitignore)
 
 The root of the repository contains a general .gitignore file. This file ignores Visual Studio and Operating System temp files. 
