@@ -27,7 +27,7 @@ In addition there is also a .gitignore file that is tailored for the Umbraco Web
 
 The VS.NET folder contains a set of useful preconfigured files and conventions that can be used as starting point in your projects. 
 
-#### [Company.Project.Web](VS.NET/Company.Project.Web)
+#### [Company.Project.Web](VS.NET/company.project.Web)
 
 This folder will contain your Umbraco application. You will need to rename the files to match your project (e.g. Company.Project becomes tescos.Jobs)
 
