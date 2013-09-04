@@ -30,7 +30,7 @@ In an ideal world this would be set to
 	
 However TeamCity has a bug, where by it gets the wrong name for the reserved MSBuild parameter.
 
-## [XSLT](XSLT)
+## [XSLT](Xslt)
 
 Contains XSLT templates for creating navigation in websites.
 These are sourced from [Greystates XSLT Helpers](https://github.com/greystate/Greystate-XSLT-Helpers) and have been modified to support:
