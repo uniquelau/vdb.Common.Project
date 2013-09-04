@@ -69,13 +69,6 @@
 
 			<!-- Generate link -->
 			<a href="{umb:NiceUrl(@id)}" title="{@nodeName}">
-        <!-- If Redirect node, set URL to the umbraco301MovedPermanently property -->
-        <xsl:if test="self::Redirect">
-          <xsl:attribute name="href">
-            <xsl:value-of select="umbraco301MovedPermanently" />
-          </xsl:attribute>
-          <xsl:attribute name="target">_Blank</xsl:attribute>
-        </xsl:if>
         <!-- If the page 'redirects', show in the menu, but don't link anywhere -->
         <!-- e.g. this is a container page, therefore it should be redirected somewhere sensible -->
         <xsl:if test="redirect !=''"><xsl:attribute name="href">#</xsl:attribute></xsl:if>
