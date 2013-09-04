@@ -1,5 +1,5 @@
 # Readme
-## Umbraco
+## [Umbraco](Umbraco)
 ### Document Type Icons
 
 /Umbraco/Images/Umbraco
@@ -29,3 +29,11 @@ In an ideal world this would be set to
     $(MSBuildProjectName)
 	
 However TeamCity has a bug, where by it gets the wrong name for the reserved MSBuild parameter.
+
+## [XSLT](XSLT)
+
+Contains XSLT templates for creating navigation in websites.
+These are sourced from [Greystates XSLT Helpers](https://github.com/greystate/Greystate-XSLT-Helpers) and have been modified to support:
++ MNTP for picking navigation items (mode = multinode, property = propertyContainingMntp)
++ Support for 'Redirect' document type
++ Ancestor class on nested navigation to make styling easier
