@@ -31,7 +31,9 @@ The VS.NET folder contains a set of useful preconfigured files and conventions t
 
 This folder will contain your Umbraco application. You will need to rename the files to match your project (e.g. Company.Project becomes tescos.Jobs)
 
+#### [Tools](VS.NET/tools)
 
+Contains MSBUILD files used for building and deploying the web application. 
 
 ### NuGet
 
