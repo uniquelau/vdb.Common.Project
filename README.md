@@ -21,7 +21,17 @@ The root of the repository contains a general .gitignore file. This file ignores
 
 In addition there is also a .gitignore file that is tailored for the Umbraco Web Application. This .gitignore file should be placed inside the directory that contains the Umbraco application. This file will ignore Umbraco temp files created by a variety of popular packages.
 
-## Visual Studio [VS.NET](VS.NET)
+## Visual Studio 
+
+### [VS.NET](VS.NET)
+
+The VS.NET folder contains a set of useful preconfigured files and conventions that can be used as starting point in your projects. 
+
+#### [Company.Project.Web]([VS.NET/Company.Project.Web)
+
+This folder will contain your Umbraco application. You will need to rename the files to match your project (e.g. Company.Project becomes tescos.Jobs)
+
+
 
 ### NuGet
 
