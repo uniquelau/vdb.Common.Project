@@ -44,10 +44,10 @@ This will update/create:
 References
 ==================
 
-| Taylor Smith, [.gitignore gist](https://gist.github.com/taylorsmith/2883529)
+Taylor Smith, [.gitignore gist](https://gist.github.com/taylorsmith/2883529)
 
 Recommended reading
 ==================
 
-| Sayed I Hashimi &amp; William Bartholomew, [Using MSBuild and Team Foundation Build](http://msbuildbook.com/)
-| Sayed I Hashimi &amp; William Bartholomew, [MSBuild Supplement](http://msbuildbook.com/)
+Sayed I Hashimi &amp; William Bartholomew, [Using MSBuild and Team Foundation Build](http://msbuildbook.com/)  
+Sayed I Hashimi &amp; William Bartholomew, [MSBuild Supplement](http://msbuildbook.com/)  
