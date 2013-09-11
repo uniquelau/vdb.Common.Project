@@ -39,17 +39,6 @@
       WHAT :: Get these files even when not in Visual Studio project.
       WHY  :: Support creating assets via Umbraco or in another IDE, e.g. non visual studio users.  
     -->
-
-		<!-- Lets not clutter our source control with .empty files -->
-		<!-- Lets just make the things we need if they don't exist -->
-		<!--
-		<MakeDir Directories="Css"/>
-		<MakeDir Directories="Scripts"/>
-		<MakeDir Directories="UserControls"/>
-		<MakeDir Directories="Media"/>
-		<MakeDir Directories="Masterpages"/>
-		<MakeDir Directories="macroScripts"/>
-		-->
 		
     <CreateItem Include="macroScripts\**\*.cshtml">
       <Output ItemName="Content" TaskParameter="Include" />

@@ -14,6 +14,10 @@
   <!-- ## Custom ACLs -->
   <!-- Based on http://forums.iis.net/p/1176955/1977169.aspx#1977169 and Sayed's Blog -->
   <Target Name="DoSetAcl">
+    
+    <!-- If the requested directory doesn't exist make it -->
+    <MakeDir Directories="$(_MSDeployDirPath_FullPath)\%(CustomDirAcl.Identity)"/>
+    
     <ItemGroup>
       <MsDeploySourceManifest Include="setAcl">
         <Path>$(_MSDeployDirPath_FullPath)</Path>
