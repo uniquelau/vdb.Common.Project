@@ -22,6 +22,7 @@
   <!-- WebDeploy will handle the standard .NET folders - e.g. App_Code, App_Browsers, App_Data, etc -->
   <!-- For our production enviroment we want to allow editors to upload new images, so let's allow the /media folder -->
   <ItemGroup>
+    <CustomDirAcl Include="App_Plugins"><AclAccess>Modify</AclAccess></CustomDirAcl>
     <CustomDirAcl Include="Bin"><AclAccess>Modify</AclAccess></CustomDirAcl>
     <CustomDirAcl Include="Css"><AclAccess>Modify</AclAccess></CustomDirAcl>
     <CustomDirAcl Include="macroScripts"><AclAccess>Modify</AclAccess></CustomDirAcl>
