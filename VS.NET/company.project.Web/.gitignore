@@ -5,6 +5,10 @@
 # This file should be placed inside the directory that contains your Umbraco Web Application
 # it is assumed that you will be using a global .gitignore file for the rest of the repository. 
 
+# DLL's created by projects within the solution
+
+[Bb]in/company.project.*.dll
+
 # Data folders/files
 
 [Aa]pp_Data/ExamineIndexes/*
