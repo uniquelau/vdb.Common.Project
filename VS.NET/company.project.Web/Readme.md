@@ -30,6 +30,29 @@ In an ideal world this would be set to
 	
 However TeamCity has a bug, where by it gets the wrong name for the reserved MSBuild parameter.
 
+## Project Build Configuration
+
+It is strongly recommended to use a common build path when working with Umbraco. This gives seperation between the binaries used in your own project, and then binaries that make up the Umbraco /Bin. This apporach can also be used to considerably improve build performance. 
+
+In each visual studio project, update the Output Path, to:
+
+../output/(Configuration)/
+
+../output/Debug/
+../output/Release/
+
+*** This translates as, go up a directory to the parent of the project, and then place the build output inside 'output' \ 'configuration' ***
+
+The build scripts included in this project will copy the latest project DLL's into the Umbraco web application each time the project builds. These are always copied from the corresponding 'Configuration' folder ensuring the DLL's are correct. 
+
+There is a bug inside Visual Studio 2010, which creates an additional /Bin folder inside the /Output directory. This can be ignored. By default this direction is ignored, as binaries should not be sourced controlled.
+
+### Project References
+
+When referencing projects, it is preferrable to avoid directly referencing the DLL, instead use a 'project reference'. It is **very** important that 'Copy Local' is set to False. 
+
+[Nancy on CopyLocal=True](http://codebetter.com/patricksmacchia/2013/05/30/a-typical-effect-of-setting-copylocal-true/)
+
 ## [XSLT](Xslt)
 
 Contains XSLT templates for creating navigation in websites.
