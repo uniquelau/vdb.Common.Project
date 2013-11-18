@@ -19,27 +19,18 @@
     <Folder Include="App_Data\preview\" />
     <Folder Include="App_Plugins\" />
   </ItemGroup>
-  
-  <!-- Automatically include content that can be generated via Umbraco or WITHOUT Visual Studio -->
-  <ItemGroup >
-		<!--
-		<Content Include="Css\**\*.*" />
-		<Content Include="Scripts\**\*.*" />
-		<Content Include="UserControls\**\*.*" />
-		<Content Include="Media\**\*.*" />
-		<Content Include="Masterpages\**\*.*" />
-		<Content Include="macroScripts\**\*.*" />
-		-->
-	</ItemGroup>
 
 	<!-- Umbraco Target -->
 	<Target Name="Umbraco">
 		<!-- 
-      SUMMARY :: Include 'editable' files in the build, even if they aren't inside Visual Studio
-      WHAT :: Get these files even when not in Visual Studio project.
+      SUMMARY :: Ensure all Umbraco application and user generated files are included in the build.
+      WHAT :: Get all Umbraco files even when not included inside Visual Studio project (csproj).
       WHY  :: Support creating assets via Umbraco or in another IDE, e.g. non visual studio users.  
     -->
 		
+    <!-- 
+      SUMMARY :: Project Specific Files
+    -->
     <CreateItem Include="macroScripts\**\*.cshtml">
       <Output ItemName="Content" TaskParameter="Include" />
     </CreateItem>
@@ -65,7 +56,7 @@
       <Output ItemName="Content" TaskParameter="Include" />
     </CreateItem>
     <!-- 
-      SUMMARY :: Umbraco Application (v4.11.4)
+      SUMMARY :: Umbraco Application (v4.11+)
     -->
     <CreateItem Include="App_Browsers\**\*.*">
       <Output ItemName="Content" TaskParameter="Include" />
@@ -88,12 +79,15 @@
     <CreateItem Include="Umbraco_Client\**\*.*">
       <Output ItemName="Content" TaskParameter="Include" />
     </CreateItem>
-	
-	  <!-- Copy output DLLs into BIN -->
+
+    <!-- 
+      SUMMARY :: Copy files from the common build 'output', into the web applications /Bin folder. This resolves issues with Visual Studio removing unreferenced DLL's (e.g. the Umbraco DLL's)
+    -->
 	  <ItemGroup>
-		  <ProjectsOutput Include="..\output\**\*.*" />
+		  <ProjectsOutput Include="..\output\$(Configuration)\**\*.*" />
 	  </ItemGroup>
-	  <Copy SourceFiles="@(ProjectsOutput)"	DestinationFolder="bin\%(RecursiveDir)" />
+
+	  <Copy SourceFiles="@(ProjectsOutput)"	DestinationFolder="$(MSBuildProjectDirectory)\bin\%(RecursiveDir)" />
 	
   </Target>
 </Project>
