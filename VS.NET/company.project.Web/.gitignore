@@ -15,6 +15,7 @@
 [Aa]pp_Data/umbraco.config
 [Aa]pp_Browsers/*
 [Aa]pp_Data/TEMP/*
+[Aa]pp_Data/tea-commerce/
 [Aa]pp_Data/ClientDependency/*
 [Aa]pp_Data/courier/cache/*
 [Aa]pp_Data/courier/revisions/*
