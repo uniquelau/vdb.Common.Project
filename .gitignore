@@ -6,9 +6,8 @@
 ._*
 .Spotlight-V100
 .Trashes
-Thumbs.db
-thumbs.db
-Desktop.ini
+[Tt]thumbs.db
+[Ds]esktop.ini
 *.orig
 dwsync.xml
 .sass-cache/
