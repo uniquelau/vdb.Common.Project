@@ -1,0 +1,14 @@
+# Rename files and folders
+
+Get-ChildItem -Filter "*company.project*" -Recurse | Rename-Item -NewName {$_.name -replace 'company.project','tg.i4ch' }
+
+# Update text inside a single file
+
+(gc *.gitignore) -replace 'company.project','tg.i4ch'
+
+*.sln
+*.csproj
+
+# Multiple find and replace
+
+http://tangodude.wordpress.com/category/powershell/
