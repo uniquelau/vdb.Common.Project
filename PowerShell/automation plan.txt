@@ -1,10 +1,10 @@
 # Rename files and folders
 
-Get-ChildItem -Filter "*company.project*" -Recurse | Rename-Item -NewName {$_.name -replace 'company.project','tg.i4ch' }
+Get-ChildItem -Filter "*COMPANY.PROJECT*" -Recurse | Rename-Item -NewName {$_.name -replace 'COMPANY.PROJECT','tg.i4ch' }
 
 # Update text inside a single file
 
-(gc *.gitignore) -replace 'company.project','tg.i4ch'
+(gc *.gitignore) -replace 'COMPANY.PROJECT','tg.i4ch'
 
 *.sln
 *.csproj
@@ -12,3 +12,7 @@ Get-ChildItem -Filter "*company.project*" -Recurse | Rename-Item -NewName {$_.na
 # Multiple find and replace
 
 http://tangodude.wordpress.com/category/powershell/
+
+# Update guid in AssemblyInfo.cs
+FIND: [assembly: Guid("cd26e15a-084d-4a52-8f00-75c34f461de6")]
+Replace: [assembly: Guid("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx")]
