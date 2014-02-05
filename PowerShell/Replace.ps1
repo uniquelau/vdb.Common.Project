@@ -1,7 +1,7 @@
 # Parameters 
 Param (
     [String]$List = "ReplacementList.csv",
-    [String]$Files = "*.*\*\*.csproj",
+    [String]$Files = "*\*.*",
     $COMPANY = "contoso",
     $COMPANYFULLNAME = "Contoso Global Holdings 2014 Ltd.",
     $PROJECT = "bank",
@@ -29,10 +29,22 @@ foreach ($sc in Get-ChildItem -Filter $find -Recurse | where { test-path $_.full
 
 }
 
-foreach ($folder in Get-ChildItem -Filter $find -Recurse ) {
-    Rename-Item $_ -Path {$_.name -replace '_company_._project_', "${COMPANY}.${PROJECT}" }
-} 
+# Create an array that contains all the folders that should be renamed
+$folders = Get-ChildItem -Filter $find -recurse | Where-Object {$_.PSIsContainer -eq $True}  | Select-Object
 
+# Reverse the array - we need to deal with the deepest items first!
+if ($folders) {
+    [array]::Reverse($folders)
+
+    foreach ($folder in $folders) {
+        $folder.Name
+        $folder.FullName
+
+        Rename-Item $folder.FullName $folder.Name.Replace('_company_._project_', "${COMPANY}.${PROJECT}")
+    } 
+}
+
+# Rename-Item $folder.FullName {$folder.Name -replace '_company_._project_', "${COMPANY}.${PROJECT}" }
 
 
 
