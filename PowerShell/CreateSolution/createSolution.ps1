@@ -8,7 +8,8 @@ Param (
     $COMPANYFULLNAME,
     $List = "ReplacementList.csv",
     $Find = '*_company_._project_*' ,
-    $UpdateFiles = ('*.sln' , '*.csproj' , '*.cs' , '*.gitignore')
+    $UpdateFiles = ('*.sln' , '*.csproj' , '*.cs' , '*.gitignore' , '*.js'),
+    $IgnoreFolders = ('Umbraco' , 'Umbraco_Client')
 )
 
 # Function for YES / NO logic
@@ -96,7 +97,7 @@ if ($debug) {
 }
 
 # Run through the files and update
-Get-ChildItem -Recurse -Include $UpdateFiles |
+Get-ChildItem -Recurse -Include $UpdateFiles | where { $IgnoreFolders -notcontains $_.DirectoryName }
 ForEach-Object {
 
     Write-Host "Updating - $_" -ForegroundColor DarkGreen
