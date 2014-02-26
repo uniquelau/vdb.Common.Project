@@ -38,11 +38,11 @@ It is strongly recommended to use a common build path when working with Umbraco.
 
 In each visual studio project, update the Output Path, to:
 
-../output/
+../bin/
 
-*** This translates as, go up a directory to the parent of the project, and then place the build output inside 'output' ***
+*** This translates as, go up a directory to the parent of the project, and then place the build output inside 'bin' ***
 
-The build scripts included in this project will copy the latest project DLL's into the Umbraco web application each time the project builds. These are always copied from the corresponding 'Configuration' folder ensuring the DLL's are correct. 
+The build scripts included in this project will always copy the DLL's from the specified output directory into your websites BIN directory. I strongly recommend setting a solution build folder called 'Bin' 
 
 There is a bug inside Visual Studio 2010, which creates an additional /Bin folder inside the /Output directory. This can be ignored. By default this direction is ignored, as binaries should not be sourced controlled.
 
