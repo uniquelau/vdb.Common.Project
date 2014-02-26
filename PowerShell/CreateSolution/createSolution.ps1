@@ -8,7 +8,7 @@ Param (
     $COMPANYFULLNAME,
     $List = "ReplacementList.csv",
     $Find = '*_company_._project_*' ,
-    $UpdateFiles = ('*.sln' , '*.csproj' , '*.cs' , '*.gitignore' , 'functions.js')
+    $UpdateFiles = ('*.sln' , '*.csproj' , '*.cs' , '*.gitignore' , 'web.config' , 'web.*.config' , 'functions.js')
 )
 
 # Function for YES / NO logic
