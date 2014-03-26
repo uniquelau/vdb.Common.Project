@@ -178,15 +178,15 @@ Write-Host "`nThe selected IP address is: $ChosenIP`n" -ForegroundColor DarkGree
 $SiteNameEnvironment = "$SiteName-$Environment"
 # Create the website directory
 Write-Host "Creating application directory" -ForegroundColor Yellow
-$ProjectPath = "$InetFolder" + "\" + "$SiteNameEnvironment"
-$SitePath = "$ProjectPath" + "\wwwroot\"
+$PROJECTPath = "$InetFolder" + "\" + "$SiteNameEnvironment"
+$SitePath = "$PROJECTPath" + "\wwwroot\"
 if (!(Test-Path $SitePath)) {
     New-Item -ItemType Directory -Path $SitePath
 }
  
 # Creates the website logfiles directory
 Write-Host "Creating application logfiles directory" -ForegroundColor Yellow
-$SiteLogsPath = "$ProjectPath" + "\logs\"
+$SiteLogsPath = "$PROJECTPath" + "\logs\"
 if (!(Test-Path $SiteLogsPath)) {
     New-Item -ItemType Directory -Path $SiteLogsPath
 }
