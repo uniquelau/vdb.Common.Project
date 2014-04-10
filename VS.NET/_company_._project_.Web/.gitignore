@@ -30,6 +30,10 @@
 [Aa]pp_Data/Elmah Logs/*
 [Aa]pp_Data/umbraco.licensing.log.txt
 
+# Umbraco files
+
+![Uu]mbraco/[Dd]eveloper/[Pp]ackages
+
 # Media Caching
 
 [Mm]edia/*/Cached
